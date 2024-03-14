@@ -17,20 +17,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .csrf().disable() // CSRF korumasını devre dışı bırak
+                .csrf().disable()
                 .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // Stateless oturum yönetimi
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/h2-console/**").permitAll() // H2 konsoluna izin ver
+                .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/api/v3/merchant/user/login").permitAll()
                 .antMatchers("/css/**", "/js/**", "/images/**", "/login.html", "/favicon.ico", "/main.html").permitAll()
                 .antMatchers("/api/v3/transaction/report").permitAll()
                 .antMatchers("/api/v3/transaction/list").permitAll()
-                .anyRequest().authenticated() // Diğer her istek için kimlik doğrulaması gerektir
+                .anyRequest().authenticated()
                 .and()
-                .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class); // JWT filtresini ekle
+                .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
 
-        http.headers().frameOptions().disable(); // H2 konsolu için frame seçeneklerini devre dışı bırak
+        http.headers().frameOptions().disable();
     }
 }
