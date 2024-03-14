@@ -1,8 +1,7 @@
-package com.guardian.reportingapi.service;
+package com.guardian.reportingapi.service.transaction;
 
 import com.guardian.reportingapi.dto.request.transaction.TransactionReportRequest;
 import com.guardian.reportingapi.dto.response.transaction.report.TransactionReportResponse;
-import com.guardian.reportingapi.service.transaction.TransactionReportService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
