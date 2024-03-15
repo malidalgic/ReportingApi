@@ -2,7 +2,6 @@ package com.guardian.reportingapi.dto.request;
 
 import lombok.Builder;
 import lombok.Getter;
-import org.jetbrains.annotations.NotNull;
 
 import javax.validation.constraints.NotBlank;
 
@@ -10,10 +9,8 @@ import javax.validation.constraints.NotBlank;
 @Builder
 public class LoginRequest {
 
-    @NotNull
     @NotBlank
     private String email;
-    @NotNull
     @NotBlank
     private String password;
 }

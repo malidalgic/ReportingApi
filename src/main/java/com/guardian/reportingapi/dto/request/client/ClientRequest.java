@@ -1,7 +1,6 @@
 package com.guardian.reportingapi.dto.request.client;
 
 import lombok.*;
-import org.jetbrains.annotations.NotNull;
 
 import javax.validation.constraints.NotBlank;
 
@@ -12,7 +11,6 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class ClientRequest {
 
-    @NotNull
     @NotBlank
     private String transactionId;
 }

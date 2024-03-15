@@ -2,7 +2,7 @@ package com.guardian.reportingapi.dto.request.transaction.report;
 
 import lombok.Builder;
 import lombok.Getter;
-import org.jetbrains.annotations.NotNull;
+import javax.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 
