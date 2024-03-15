@@ -7,6 +7,7 @@ import lombok.Getter;
 @Getter
 @Builder
 public class AcquirerInfo {
+
     private int id;
     private String name;
     private String code;

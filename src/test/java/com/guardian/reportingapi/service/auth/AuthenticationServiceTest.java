@@ -1,9 +1,8 @@
-package com.guardian.reportingapi.service;
+package com.guardian.reportingapi.service.auth;
 
 import com.guardian.reportingapi.entity.User;
 import com.guardian.reportingapi.repository.UserRepository;
 import com.guardian.reportingapi.security.jwt.JwtTokenProvider;
-import com.guardian.reportingapi.service.auth.AuthenticationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -12,9 +11,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 

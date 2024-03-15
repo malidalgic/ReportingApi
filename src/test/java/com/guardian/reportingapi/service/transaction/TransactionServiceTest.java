@@ -21,8 +21,9 @@ class TransactionServiceTest {
 
     @Test
     void processRequest() {
-        TransactionRequest request = new TransactionRequest();
-        request.setTransactionId("testTransactionId");
+        TransactionRequest request = TransactionRequest.builder()
+                .transactionId("testTransactionId")
+                .build();
 
         TransactionResponse response = transactionService.processRequest(request);
 

@@ -1,5 +1,6 @@
 package com.guardian.reportingapi.dto.response.transaction;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.guardian.reportingapi.dto.enumeration.Status;
 import lombok.Builder;
 import lombok.Getter;
@@ -25,7 +26,9 @@ public class MerchantTransactionInfo {
         private Long agentInfoId;
         private String operation;
         private Long fxTransactionId;
+        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
         private LocalDateTime updatedAt;
+        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
         private LocalDateTime createdAt;
         private Long id;
         private Long acquirerTransactionId;

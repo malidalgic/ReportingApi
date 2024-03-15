@@ -1,5 +1,6 @@
 package com.guardian.reportingapi.dto.response.transaction.list;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,8 +13,11 @@ import java.time.LocalDateTime;
 public class CustomerInfo {
 
     private Long id;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdAt;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updatedAt;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime deletedAt;
     private String number;
     private String expiryMonth;
@@ -22,6 +26,7 @@ public class CustomerInfo {
     private String startYear;
     private String issueNumber;
     private String email;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime birthday;
     private String gender;
     private String billingTitle;

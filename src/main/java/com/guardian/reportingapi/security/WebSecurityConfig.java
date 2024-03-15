@@ -24,6 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/api/v3/merchant/user/login").permitAll()
                 .antMatchers("/api/v3/transaction").permitAll()
+                .antMatchers("/api/v3/client").permitAll()
                 .antMatchers("/css/**", "/js/**", "/images/**", "/login.html", "/favicon.ico", "/main.html").permitAll()
                 .antMatchers("/api/v3/transaction/report").permitAll()
                 .antMatchers("/api/v3/transaction/list").permitAll()
