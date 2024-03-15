@@ -1,6 +1,6 @@
 package com.guardian.reportingapi.service.transaction;
 
-import com.guardian.reportingapi.dto.request.transaction.TransactionListRequest;
+import com.guardian.reportingapi.dto.request.transaction.list.TransactionListRequest;
 import com.guardian.reportingapi.dto.response.transaction.list.TransactionListResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,10 @@
 package com.guardian.reportingapi.dto;
 
+import lombok.Getter;
+
+@Getter
 public class ErrorCode {
+
     public static final String DO_NOT_HONOR = "Do not honor";
     public static final String INVALID_TRANSACTION = "Invalid Transaction";
     public static final String INVALID_CARD = "Invalid Card";

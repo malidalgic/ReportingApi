@@ -1,7 +1,7 @@
 package com.guardian.reportingapi.service.transaction;
 
 import com.guardian.reportingapi.dto.enumeration.Status;
-import com.guardian.reportingapi.dto.request.transaction.TransactionReportRequest;
+import com.guardian.reportingapi.dto.request.transaction.report.TransactionReportRequest;
 import com.guardian.reportingapi.dto.response.transaction.report.Response;
 import com.guardian.reportingapi.dto.response.transaction.report.TransactionReportResponse;
 import com.guardian.reportingapi.exception.ReportNotFoundException;
@@ -36,9 +36,8 @@ public class TransactionReportService {
 
     private List<Response> generateResponse(TransactionReportRequest transactionReportRequest) {
 
-        return Stream.of(
-                Response.builder().count(283).total(28300).currency("USD").build(),
-                Response.builder().count(280).total(1636515).currency("EUR").build()
-        ).collect(Collectors.toList());
+        return Stream.of(Response.builder().count(283).total(28300).currency("USD").build(),
+                        Response.builder().count(280).total(1636515).currency("EUR").build())
+                .collect(Collectors.toList());
     }
 }

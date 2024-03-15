@@ -3,7 +3,7 @@ package com.guardian.reportingapi.service.transaction;
 import com.guardian.reportingapi.dto.Operation;
 import com.guardian.reportingapi.dto.enumeration.PaymentMethod;
 import com.guardian.reportingapi.dto.enumeration.Status;
-import com.guardian.reportingapi.dto.request.transaction.TransactionListRequest;
+import com.guardian.reportingapi.dto.request.transaction.list.TransactionListRequest;
 import com.guardian.reportingapi.dto.response.transaction.list.*;
 import com.guardian.reportingapi.exception.ListNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -36,15 +36,15 @@ public class TransactionListService {
     private TransactionListResponse generateResponse(TransactionListRequest transactionListRequest) {
 
         int perPage = 50;
-        int currentPage = transactionListRequest.getPage();
+        int currentPage = 1;
 
         List<Data> dataList = generateDataList();
 
         return TransactionListResponse.builder()
                 .per_page(perPage)
                 .current_page(currentPage)
-                .next_page_url("http://example.com/api/page=" + (currentPage + 1))
-                .prev_page_url(currentPage > 1 ? "http://example.com/api/page=" + (currentPage - 1) : null)
+                .next_page_url("localhost:8080/api/v3/transaction/list/?page=" + (currentPage + 1))
+                .prev_page_url(currentPage > 1 ? "localhost:8080/api/v3/transaction/list/?page=" + (currentPage - 1) : null)
                 .from(1)
                 .to(perPage)
                 .data(dataList)
@@ -81,7 +81,7 @@ public class TransactionListService {
                                 .referenceNo("api_560a4a9314208")
                                 .status(Status.APPROVED)
                                 .operation(Operation._3DAUTH)
-                                .message("Auth3D is" + Status.APPROVED)
+                                .message("Auth3D is " + Status.APPROVED)
                                 .created_at(generateLocalDateTime())
                                 .transactionId("2827-1443515082-3")
                                 .build())

@@ -1,4 +1,4 @@
-package com.guardian.reportingapi.dto.request.transaction;
+package com.guardian.reportingapi.dto.request.transaction.report;
 
 import lombok.Builder;
 import lombok.Getter;

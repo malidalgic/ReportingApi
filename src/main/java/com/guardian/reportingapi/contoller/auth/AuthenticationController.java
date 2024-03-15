@@ -1,7 +1,7 @@
 package com.guardian.reportingapi.contoller.auth;
 
-import com.guardian.reportingapi.dto.request.LoginRequest;
 import com.guardian.reportingapi.dto.enumeration.Status;
+import com.guardian.reportingapi.dto.request.LoginRequest;
 import com.guardian.reportingapi.dto.response.LoginResponse;
 import com.guardian.reportingapi.service.auth.AuthenticationService;
 import lombok.RequiredArgsConstructor;
@@ -29,11 +29,10 @@ public class AuthenticationController {
 
             if (isValidUser) {
                 String token = authenticationService.createToken(loginRequest.getEmail());
-                LoginResponse response = LoginResponse.builder()
+                return ResponseEntity.status(HttpStatus.OK).body(LoginResponse.builder()
                         .token(token)
                         .status(Status.APPROVED)
-                        .build();
-                return ResponseEntity.ok(response);
+                        .build());
             } else {
                 return ResponseEntity
                         .status(HttpStatus.UNAUTHORIZED)
