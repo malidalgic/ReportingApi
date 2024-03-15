@@ -1,5 +1,6 @@
 package com.guardian.reportingapi.service.transaction;
 
+import com.guardian.reportingapi.dto.enumeration.Status;
 import com.guardian.reportingapi.dto.request.transaction.TransactionRequest;
 import com.guardian.reportingapi.dto.response.transaction.MerchantTransactionInfo;
 import com.guardian.reportingapi.dto.response.transaction.TransactionResponse;
@@ -58,14 +59,27 @@ public class TransactionService {
                 .build();
 
         // Merchant Transaction Information
-        MerchantTransactionInfo merchantTransactions = MerchantTransactionInfo.builder()
-                .merchantId(1)
+        MerchantTransactionInfo.Merchant transaction = MerchantTransactionInfo.Merchant.builder()
+                .merchantId(1L)
                 .referenceNo("reference_5617ae66281ee")
-                .status("WAITING")
+                .status(Status.WAITING)
+                .channel("API")
+                .chainId("5617ae666b4cb")
+                .agentInfoId(1L)
                 .operation("DIRECT")
                 .createdAt(LocalDateTime.parse("2015-10-09 12:09:10", formatter))
                 .updatedAt(LocalDateTime.parse("2015-10-09 12:09:12", formatter))
+                .id(1L)
+                .acquirerTransactionId(1L)
+                .code("00")
+                .message("Waiting")
                 .transactionId("1-1444392550-1")
+                .agent(MerchantTransactionInfo.Agent.builder()
+                        .id(1L)
+                        .customerIp("192.168.1.2")
+                        .customerUserAgent("Agent")
+                        .merchantIp("127.0.0.1")
+                        .build())
                 .build();
 
         // Building the final Transaction Response
@@ -73,7 +87,7 @@ public class TransactionService {
                 .fx(fxInformation)
                 .customerInfo(customerInfo)
                 .merchant(merchant)
-                .merchantTransactions(merchantTransactions)
+                .transaction(MerchantTransactionInfo.builder().merchant(transaction).build())
                 .build();
     }
 }

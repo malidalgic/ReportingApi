@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CustomerInfo {
+
     private Long id;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

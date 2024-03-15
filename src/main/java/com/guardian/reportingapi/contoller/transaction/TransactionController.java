@@ -10,23 +10,26 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v3")
+@RequestMapping("/api/v3/")
 public class TransactionController {
 
     private final JwtTokenService jwtTokenService;
     private final TransactionService transactionService;
 
-    @GetMapping("/transaction")
-    public ResponseEntity<TransactionResponse> fetchTransaction(
+    @PostMapping("/transaction")
+    public ResponseEntity<TransactionResponse> transaction(
             @RequestHeader("Authorization") String jwtToken,
-            @RequestBody TransactionRequest transactionRequest) {
+            @RequestBody @Valid TransactionRequest transactionRequest) {
 
         try {
             if (!jwtTokenService.isTokenValid(jwtToken)) {
                 log.warn("Unauthorized access attempt with invalid or expired token");
+
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
             }
 

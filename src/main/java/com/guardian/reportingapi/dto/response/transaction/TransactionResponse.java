@@ -12,7 +12,6 @@ public class TransactionResponse {
 
     private FxInformation fx;
     private CustomerInfo customerInfo;
-    private AcquirerTransactionInfo acquirerTransactions;
     private Merchant merchant;
-    private MerchantTransactionInfo merchantTransactions;
+    private MerchantTransactionInfo transaction;
 }

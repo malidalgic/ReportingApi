@@ -70,7 +70,7 @@ public class TransactionListService {
                         .billingLastName("Aras")
                         .build())
                 .merchant(Merchant.builder()
-                        .id(3)
+                        .id(3L)
                         .name("Dev-Merchant")
                         .build())
                 .ipn(IpnReceived.builder()
