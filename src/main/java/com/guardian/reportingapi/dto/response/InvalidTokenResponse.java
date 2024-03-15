@@ -6,8 +6,8 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class LoginResponse {
+public class InvalidTokenResponse {
 
-    private String token;
     private Status status;
+    private String message;
 }

@@ -1,7 +1,7 @@
 package com.guardian.reportingapi.mapper;
 
 import com.guardian.reportingapi.dto.UserDTO;
-import com.guardian.reportingapi.entity.User;
+import com.guardian.reportingapi.domain.User;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

@@ -1,6 +1,8 @@
 package com.guardian.reportingapi.service.auth;
 
-import com.guardian.reportingapi.entity.User;
+import com.guardian.reportingapi.domain.User;
+import com.guardian.reportingapi.dto.request.LoginRequest;
+import com.guardian.reportingapi.exception.UserNotFoundException;
 import com.guardian.reportingapi.repository.UserRepository;
 import com.guardian.reportingapi.security.jwt.JwtTokenProvider;
 import org.junit.jupiter.api.BeforeEach;
@@ -46,21 +48,24 @@ class AuthenticationServiceTest {
     }
 
     @Test
-    void validateUser_WhenUserExists_ShouldReturnTrue() {
+    void validateUser_WhenUserExists_ShouldNotThrowException() {
         setupUserRepository(true);
 
-        boolean result = authenticationService.validateUser(EMAIL, PASSWORD);
-
-        assertTrue(result);
+        assertDoesNotThrow(() -> authenticationService.validateUser(LoginRequest.builder()
+                .email(EMAIL)
+                .password(PASSWORD)
+                .build()));
     }
 
     @Test
-    void validateUser_WhenUserDoesNotExist_ShouldReturnFalse() {
+    void validateUser_WhenUserDoesNotExist_ShouldThrowUserNotFoundException() {
         setupUserRepository(false);
 
-        boolean result = authenticationService.validateUser(EMAIL, PASSWORD);
+        UserNotFoundException userNotFoundException = assertThrows(UserNotFoundException.class, () -> authenticationService.validateUser(LoginRequest.builder()
+                .email(EMAIL)
+                .password(PASSWORD)
+                .build()));
 
-        assertFalse(result);
     }
 
     @Test

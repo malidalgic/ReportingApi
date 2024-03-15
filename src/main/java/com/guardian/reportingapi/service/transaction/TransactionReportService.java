@@ -5,14 +5,12 @@ import com.guardian.reportingapi.dto.request.transaction.report.TransactionRepor
 import com.guardian.reportingapi.dto.response.transaction.report.Response;
 import com.guardian.reportingapi.dto.response.transaction.report.TransactionReportResponse;
 import com.guardian.reportingapi.exception.ReportNotFoundException;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-@Slf4j
 @Service
 public class TransactionReportService {
 
@@ -20,8 +18,7 @@ public class TransactionReportService {
         List<Response> response = generateResponse(transactionReportRequest);
 
         if (response == null) {
-            log.error("Report not found or response is null");
-            throw new ReportNotFoundException("Report not found or response is null");
+            throw new ReportNotFoundException();
         }
 
         return TransactionReportResponse.builder()

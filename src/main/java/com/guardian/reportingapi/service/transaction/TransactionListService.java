@@ -6,7 +6,6 @@ import com.guardian.reportingapi.dto.enumeration.Status;
 import com.guardian.reportingapi.dto.request.transaction.list.TransactionListRequest;
 import com.guardian.reportingapi.dto.response.transaction.list.*;
 import com.guardian.reportingapi.exception.ListNotFoundException;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -15,7 +14,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-@Slf4j
 @Service
 public class TransactionListService {
 
@@ -24,8 +22,7 @@ public class TransactionListService {
         TransactionListResponse response = generateResponse(transactionListRequest);
 
         if (response == null) {
-            log.error("List not found or response is null");
-            throw new ListNotFoundException("List not found or response is null");
+            throw new ListNotFoundException();
         }
 
         return response;

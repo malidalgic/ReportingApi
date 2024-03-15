@@ -1,4 +1,4 @@
-package com.guardian.reportingapi.entity;
+package com.guardian.reportingapi.domain;
 
 import lombok.*;
 import org.jetbrains.annotations.NotNull;

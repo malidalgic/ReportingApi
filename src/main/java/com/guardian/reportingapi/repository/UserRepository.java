@@ -1,6 +1,6 @@
 package com.guardian.reportingapi.repository;
 
-import com.guardian.reportingapi.entity.User;
+import com.guardian.reportingapi.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

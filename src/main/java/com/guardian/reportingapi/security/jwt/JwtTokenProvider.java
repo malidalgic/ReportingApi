@@ -1,7 +1,7 @@
 package com.guardian.reportingapi.security.jwt;
 
+import com.guardian.reportingapi.exception.InvalidTokenException;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -40,14 +40,14 @@ public class JwtTokenProvider {
         return null;
     }
 
-    public boolean validateToken(String token) {
+    public void validateToken(String token) throws InvalidTokenException {
         try {
-            Jws<Claims> claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
-            return !claims.getBody().getExpiration().before(new Date());
+            Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
         } catch (Exception e) {
-            return false;
+            throw new InvalidTokenException("Invalid token");
         }
     }
+
 
     public Authentication getAuthentication(String token) {
         String username = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
