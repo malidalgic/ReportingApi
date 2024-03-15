@@ -5,7 +5,6 @@ import com.guardian.reportingapi.dto.request.transaction.report.TransactionRepor
 import com.guardian.reportingapi.dto.response.transaction.report.Response;
 import com.guardian.reportingapi.dto.response.transaction.report.TransactionReportResponse;
 import com.guardian.reportingapi.exception.ReportNotFoundException;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +14,7 @@ import java.util.stream.Stream;
 
 @Slf4j
 @Service
-@RequiredArgsConstructor
 public class TransactionReportService {
-
 
     public TransactionReportResponse fetchTransactionReport(TransactionReportRequest transactionReportRequest) {
         List<Response> response = generateResponse(transactionReportRequest);

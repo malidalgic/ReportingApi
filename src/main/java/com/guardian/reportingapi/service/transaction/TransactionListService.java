@@ -6,7 +6,6 @@ import com.guardian.reportingapi.dto.enumeration.Status;
 import com.guardian.reportingapi.dto.request.transaction.list.TransactionListRequest;
 import com.guardian.reportingapi.dto.response.transaction.list.*;
 import com.guardian.reportingapi.exception.ListNotFoundException;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +17,6 @@ import java.util.stream.Stream;
 
 @Slf4j
 @Service
-@RequiredArgsConstructor
 public class TransactionListService {
 
     public TransactionListResponse fetchTransactionList(TransactionListRequest transactionListRequest) {

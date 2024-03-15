@@ -7,16 +7,12 @@ import com.guardian.reportingapi.dto.response.transaction.TransactionResponse;
 import com.guardian.reportingapi.dto.response.transaction.list.CustomerInfo;
 import com.guardian.reportingapi.dto.response.transaction.list.FxInformation;
 import com.guardian.reportingapi.dto.response.transaction.list.Merchant;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-@Slf4j
 @Service
-@RequiredArgsConstructor
 public class TransactionService {
     public TransactionResponse processRequest(TransactionRequest transactionRequest) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

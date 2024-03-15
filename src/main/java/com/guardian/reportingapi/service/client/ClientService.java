@@ -3,14 +3,12 @@ package com.guardian.reportingapi.service.client;
 import com.guardian.reportingapi.dto.request.client.ClientRequest;
 import com.guardian.reportingapi.dto.response.client.ClientResponse;
 import com.guardian.reportingapi.dto.response.transaction.list.CustomerInfo;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Service
-@RequiredArgsConstructor
 public class ClientService {
     public ClientResponse processRequest(ClientRequest clientRequest) {
 
