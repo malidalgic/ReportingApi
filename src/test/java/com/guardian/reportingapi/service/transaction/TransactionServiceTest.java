@@ -2,22 +2,14 @@ package com.guardian.reportingapi.service.transaction;
 
 import com.guardian.reportingapi.dto.request.transaction.TransactionRequest;
 import com.guardian.reportingapi.dto.response.transaction.TransactionResponse;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.MockitoAnnotations;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class TransactionServiceTest {
 
-    @InjectMocks
-    private TransactionService transactionService;
-
-    @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
+    private final TransactionService transactionService = new TransactionService();
 
     @Test
     void processRequest() {

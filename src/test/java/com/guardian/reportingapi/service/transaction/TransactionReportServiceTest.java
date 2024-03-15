@@ -2,10 +2,7 @@ package com.guardian.reportingapi.service.transaction;
 
 import com.guardian.reportingapi.dto.request.transaction.report.TransactionReportRequest;
 import com.guardian.reportingapi.dto.response.transaction.report.TransactionReportResponse;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.MockitoAnnotations;
 
 import java.time.LocalDate;
 
@@ -13,13 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class TransactionReportServiceTest {
 
-    @InjectMocks
-    private TransactionReportService transactionReportService;
-
-    @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
+    private final TransactionReportService transactionReportService = new TransactionReportService();
 
     @Test
     void whenValidRequest_thenReturnsExpectedResponse() {
